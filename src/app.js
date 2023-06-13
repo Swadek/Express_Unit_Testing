@@ -1,11 +1,12 @@
+/* eslint-disable no-console */
 require('dotenv').config();
 const express = require('express');
 const connection = require('../db-config');
 const routes = require('./routes');
 
 connection.connect((err) => {
-  if (err) console.log('Error connecting to database', err);
-  else console.log('Connected as id ' + connection.threadId);
+  if (err) console.warn('Error connecting to database', err);
+  else console.warn('Connected as id ' + connection.threadId);
 });
 
 const app = express();
